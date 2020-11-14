@@ -1,15 +1,15 @@
 N = int(input())
-a = list(map(int,input().split()))
-
-max_count = 0
-num = 0
-
-for i in range(2,1000):
+A = list(map(int,input().split()))
+gcd = 0
+ans = 0
+for k in range(2,1000+1):
+    # 数列Aについて、kのgcd度を計算
     count = 0
-    for j in range(len(a)):
-        if a[j] % i == 0:
+    for a in A:
+        if a % k == 0:
             count += 1
-    if max_count < count:
-        max_count = count
-        num = i
-print(num)
+    # gcdが最大なら更新
+    if gcd <= count:
+        gcd = count
+        ans = k
+print(ans)
